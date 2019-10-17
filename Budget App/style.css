@@ -1,0 +1,31 @@
+html,body {
+    padding: 0;
+    margin: 0;
+}
+
+#backgroundImage {
+    width: 100vw;
+    height: 50vh;
+}
+
+#inputBar {
+    width: 60vw;
+    height: 5vh;
+    margin: 0 auto;
+}
+
+#inputType {
+    width: 10%;
+}
+
+#inputDesc {
+    width: 50%;
+}
+
+#inputValue {
+    width: 10%;
+}
+
+#inputBtn {
+    width: 10%;
+}
