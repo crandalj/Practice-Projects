@@ -8,10 +8,20 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <img id="backgroundImage" src="background.jpg" alt="Photo by 🇨🇭 Claudio Schwarz | @purzlbaum on Unsplash">
-        <div id="budgetNumbers">
-            
+        <div class="top">
+            <div class="budgetNumbers">
+                <div class="budgetTotal center">+ 00.00</div>
+                <div class="income green">
+                    <div class="incomeText left">INCOME</div>
+                    <div class="incomeValue right">+ 00.00</div>
+                </div>
+                <div class="expenses red">
+                    <div class="expensesText left">EXPENSES</div>
+                    <div class="expensesValue right">- 00.00</div>
+                </div>
+            </div>
         </div>
+        
         <div id="inputBar">
             <select id="inputType">
                 <option>+</option>
@@ -22,7 +32,10 @@
             <input id="inputBtn" type="button" name="budgetInput" class="btn_add" value="Add">
         </div>
         <div id="budgetContainer">
+            <h2 class="expensesTitle">Expenses</h2>
+            <div class="expenseList">
 
+            </div>
         </div>
         <script src="app.js" async defer></script>
     </body>

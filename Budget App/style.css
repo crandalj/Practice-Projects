@@ -1,17 +1,70 @@
-html,body {
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-#backgroundImage {
+body{
+    height: 100vh;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.top {
+    height: 40vh;
     width: 100vw;
-    height: 50vh;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.budgetNumbers {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.budgetTotal {
+    padding-bottom: 20px;
+    font-size: 2rem;
+}
+
+.expenses, .income {
+    text-align: center;
+    width: 40vh;
+    padding: 20px 10px;
+}
+
+.expensesText, .incomeText {
+    text-transform: uppercase;
+    display: inline-block;
 }
 
 #inputBar {
     width: 60vw;
     height: 5vh;
     margin: 0 auto;
+    padding: 10px 0;
 }
 
 #inputType {
@@ -23,9 +76,13 @@ html,body {
 }
 
 #inputValue {
-    width: 10%;
+    width: 20%;
 }
 
 #inputBtn {
     width: 10%;
+}
+
+#budgetContainer {
+
 }
