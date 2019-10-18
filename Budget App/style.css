@@ -30,11 +30,11 @@ body{
 }
 
 .green {
-    background-color: green;
+    background-color: #53b92b;
 }
 
 .red {
-    background-color: red;
+    background-color: rgb(221, 39, 39);
 }
 
 .budgetNumbers {
@@ -53,11 +53,13 @@ body{
     text-align: center;
     width: 40vh;
     padding: 20px 10px;
+    color: rgb(218, 218, 218);
 }
 
 .expensesText, .incomeText {
     text-transform: uppercase;
     display: inline-block;
+    color: rgb(218, 218, 218);
 }
 
 #inputBar {
@@ -67,19 +69,19 @@ body{
     padding: 10px 0;
 }
 
-#inputType {
+.inputType {
     width: 10%;
 }
 
-#inputDesc {
+.inputDesc {
     width: 50%;
 }
 
-#inputValue {
+.inputValue {
     width: 20%;
 }
 
-#inputBtn {
+.inputBtn {
     width: 10%;
 }
 
