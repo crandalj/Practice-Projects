@@ -24,17 +24,25 @@
         
         <div id="inputBar">
             <select class="inputType">
-                <option value="+">+</option>
-                <option value="-">-</option>
+                <option value="inc">+</option>
+                <option value="exp">-</option>
             </select>
-            <input class="inputDesc" type="text" name="budgetInput" placeholder="Add description" value="">
-            <input class="inputValue" type="number" name="budgetInput" placeholder="Value" value="">
+            <input class="inputDesc" type="text" name="budgetInput" placeholder="Add description">
+            <input class="inputValue" type="number" name="budgetInput" placeholder="Value">
             <input class="inputBtn btn_add" type="button" name="budgetInput" value="Add">
         </div>
         <div id="budgetContainer">
-            <h2 class="expensesTitle">Expenses</h2>
-            <div class="expenseList">
+            <div class="incomeContainer">
+                <h2 class="incomeTitle">Income</h2>
+                <div class="incomeList">
 
+                </div>
+            </div>
+            <div class="expenseContainer">
+                <h2 class="expenseTitle">Expense</h2>
+                <div class="expenseList">
+            
+                </div>
             </div>
         </div>
         <script src="app.js" async defer></script>
