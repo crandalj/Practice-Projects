@@ -85,7 +85,7 @@ body{
     width: 10%;
 }
 
-#budgetContainer {
+.budgetContainer {
     margin: 0 auto;
     width: 80%;
 }
@@ -115,7 +115,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-.icome__title { color: #28B9B5; }
+.income__title { color: #28B9B5; }
 .expenses__title { color: #FF5049; }
 
 .item {
