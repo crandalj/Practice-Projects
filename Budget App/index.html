@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Budget App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="top">
+            <div class="budgetNumbers">
+                <div class="date"></div>
+                <div class="budgetTotal center">+ 00.00</div>
+                <div class="income green">
+                    <div class="incomeText left">INCOME</div>
+                    <div class="incomeValue">+ 00.00</div>
+                    <div class="budgetIncomePercentage"></div>
+                </div>
+                <div class="expenses red">
+                    <div class="expensesText left">EXPENSES</div>
+                    <div class="expensesValue">- 00.00</div>
+                    <div class="budgetExpensesPercentage right">0%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="inputBar">
+            <select class="inputType">
+                <option value="inc">+</option>
+                <option value="exp">-</option>
+            </select>
+            <input class="inputDesc" type="text" name="budgetInput" placeholder="Add description">
+            <input class="inputValue" type="number" name="budgetInput" placeholder="Value">
+            <input class="inputBtn btn_add" type="button" name="budgetInput" value="Add">
+        </div>
+        <div class="budgetContainer">
+            <div class="incomeContainer">
+                <h2 class="incomeTitle">Income</h2>
+                <div class="incomeList">
+
+                </div>
+            </div>
+            <div class="expenseContainer">
+                <h2 class="expenseTitle">Expense</h2>
+                <div class="expenseList">
+            
+                </div>
+            </div>
+        </div>
+        <script src="app.js" async defer></script>
+    </body>
+</html>

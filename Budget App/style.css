@@ -1,0 +1,213 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.top {
+    height: 40vh;
+    width: 100vw;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: center;
+}
+
+.green {
+    background-color: #53b92b;
+}
+
+.red {
+    background-color: rgb(221, 39, 39);
+}
+
+.budgetNumbers {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.budgetTotal {
+    padding-bottom: 20px;
+    font-size: 2rem;
+}
+
+.expenses, .income {
+    text-align: center;
+    width: 40vh;
+    height: 10vh;
+    padding: 20px 10px;
+    color: rgb(218, 218, 218);
+}
+
+.expensesText, .incomeText {
+    text-transform: uppercase;
+    display: inline-block;
+    color: rgb(218, 218, 218);
+}
+
+.expensesValue, .incomeValue {
+    display: inline-block;
+}
+
+.budgetExpensesPercentage {
+    display: inline-block;
+    background: rgb(231, 88, 88);
+    padding: 2px;
+}
+
+.redOutline{
+    color: rgb(221, 39, 39) !important;
+}
+
+.redOutline-focus:focus{
+    outline: none !important;
+    border: 1px solid rgb(221, 39, 39) !important;
+}
+
+#inputBar {
+    width: 60vw;
+    height: 10vh;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.inputType {
+    width: 10%;
+}
+
+.inputDesc {
+    width: 50%;
+}
+
+.inputValue {
+    width: 20%;
+}
+
+.inputBtn {
+    width: 10%;
+}
+
+.budgetContainer {
+    margin: 0 auto;
+    width: 80%;
+}
+
+/***** LISTS *****/
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.incomeContainer {
+    width: 40%;
+    float: left;
+}
+
+.expenseContainer {
+    width: 40%;
+    float: right;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.income__title { color: #28B9B5; }
+.expenses__title { color: #FF5049; }
+
+.item {
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.item:first-child { border-top: 1px solid #e7e7e7; }
+.item:nth-child(even) { background-color: #f7f7f7; }
+
+.item__description {
+    float: left;
+}
+
+.item__value {
+    float: left;
+    transition: transform 0.3s;
+}
+
+.item__percentage {
+    float: left;
+    margin-left: 20px;
+    transition: transform 0.3s;
+    font-size: 11px;
+    background-color: #FFDAD9;
+    padding: 3px;
+    border-radius: 3px;
+    width: 32px;
+    text-align: center;
+}
+
+.incomeContainer .item__value,
+.incomeContainer .item__delete--btn {
+    color: #28B9B5;
+}
+
+.expenseContainer .item__value,
+.expenseContainer .item__percentage,
+.expenseContainer .item__delete--btn {
+    color: #FF5049;
+}
+
+
+.item__delete {
+    float: left;
+}
+
+.item__delete--btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    display: none;
+}
+
+.item__delete--btn:focus { outline: none; }
+.item__delete--btn:active { transform: translateY(2px); }
+
+.item:hover .item__delete--btn { display: block; }
+.item:hover .item__value { transform: translateX(-20px); }
+.item:hover .item__percentage { transform: translateX(-20px); }
+
+
+.unpaid {
+    background-color: #FFDAD9 !important;
+    cursor: pointer;
+    color: #FF5049;
+
+}
+
+.unpaid .item__percentage { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
+.unpaid:hover .item__description { font-weight: 900; }
