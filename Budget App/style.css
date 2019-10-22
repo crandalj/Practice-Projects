@@ -27,6 +27,7 @@ body{
     background-size: cover;
     background-position: center;
     position: relative;
+    text-align: center;
 }
 
 .green {
@@ -52,6 +53,7 @@ body{
 .expenses, .income {
     text-align: center;
     width: 40vh;
+    height: 10vh;
     padding: 20px 10px;
     color: rgb(218, 218, 218);
 }
@@ -62,9 +64,28 @@ body{
     color: rgb(218, 218, 218);
 }
 
+.expensesValue, .incomeValue {
+    display: inline-block;
+}
+
+.budgetExpensesPercentage {
+    display: inline-block;
+    background: rgb(231, 88, 88);
+    padding: 2px;
+}
+
+.redOutline{
+    color: rgb(221, 39, 39) !important;
+}
+
+.redOutline-focus:focus{
+    outline: none !important;
+    border: 1px solid rgb(221, 39, 39) !important;
+}
+
 #inputBar {
     width: 60vw;
-    height: 5vh;
+    height: 10vh;
     margin: 0 auto;
     padding: 10px 0;
 }
@@ -98,14 +119,13 @@ body{
 }
 
 .incomeContainer {
+    width: 40%;
     float: left;
-    width: 475px;
-    margin-right: 50px;
 }
 
 .expenseContainer {
-    float: left;
-    width: 475px;
+    width: 40%;
+    float: right;
 }
 
 h2 {
