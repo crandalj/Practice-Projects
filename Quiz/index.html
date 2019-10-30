@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Quiz</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="quiz-start">
+                <h1>Are you ready for a Game Jam?</h1>
+                <button id="btn-start">Start</button>
+            </div>
+            <div id="quiz-question-container">
+                <h1 id="question">Question</h1>
+                <div id="answers">
+                    <input type="radio" name="question" value="A" required>A) <span id="answerA"></span><br>
+                    <input type="radio" name="question" value="B">B) <span id="answerB"></span><br>
+                    <input type="radio" name="question" value="C">C) <span id="answerC"></span><br>
+                    <input type="radio" name="question" value="D">D) <span id="answerD"></span><br>
+                    <button id="btn-next">Next</button>
+                </div>
+                
+                
+            </div>
+            <div id="quiz-results">
+                <h1>Results!</h1>
+                <h3 id="quiz-score">0/0</h3>
+            </div>
+        </div>
+        <script src="quiz.js" async defer></script>
+    </body>
+</html>

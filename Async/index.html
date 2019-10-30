@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+    <head>
+        <title>Async Example</title>
+    </head>
+    <body>
+        <script>
+            // A Promise is used to handle asynchronous operations
+            // they provide better error handling than callbacks and events
+            const getIDs = new Promise((resolve, reject) =>{
+                // resolve handles success
+                // reject handles failure
+                setTimeout(() => {
+                    // Example to replace an AJAX request
+                    // we request IDs from something else and get that back
+                    resolve([1,2,3,4,5]);
+                }, 2000);
+            });
+
+            const getRecipe = recipeID => {
+                return new Promise((resolve, reject) =>{
+                    setTimeout(ID => {
+                        const recipe = {
+                            title: 'sandwich',
+                            publisher: 'chef'
+                        };
+                        resolve(`${ID}: ${recipe.title}`);
+                    }, 2000, recipeID);
+                });
+            };
+
+            const getRelated = publisher => {
+                return new Promise((resolve, reject) => {
+                    setTimeout(pub => {
+                        const recipe = {title: 'Bagel', publisher: 'chef'};
+                        resolve(`${pub}: ${recipe.title}`);
+                    }, 2000, publisher);
+                });
+            };
+
+            // NON ASYNC VERSION 
+            // getIDs
+            // .then(IDs => {
+            //     console.log(IDs);
+            //     return getRecipe(IDs[1]); //returning allows you to avoid nesting then() functions
+            // })
+            // .then(recipe =>{
+            //     console.log(recipe);
+            //     return getRelated('chef');
+            // })
+            // .then(recipe => {
+            //     console.log(recipe);
+            // })
+            // .catch(error => {
+            //     // impossible to fail but this is how it would be handled
+            //     console.log(error);
+            // });
+
+            async function getRecipesAW(){
+                // await can only be used in an async function
+                // since this function already runs in the backgroun it lets us control
+                // the asynchronous process in a much more managable way
+                const IDs = await getIDs; // Stops code until promise is fulfilled
+                console.log(IDs);
+                const recipe = await getRecipe(IDs[1]);
+                console.log(recipe);
+                const relatedRecipe = await getRelated('chef'); // would use recipe.publisher in actuality
+                console.log(relatedRecipe);
+
+                return recipe;
+            }
+            // Calls async and when that is finished it logs the returned item
+            getRecipesAW().then(result => {
+                console.log(result);
+            });
+
+            console.log("I show up before the IDs");
+
+            // Fetch example
+            // Uses crossorigin to get around cross origin issue
+            function getWeather(woeid) {
+                fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+                        .then(result => {
+                            // console.log(result);
+                            return result.json();
+                        })
+                        .then(data => {
+                            // console.log(data);
+                            const today = data.consolidated_weather[0];
+                            console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`);
+                        })
+                        .catch(error => console.log(error));
+            }
+            getWeather(2487956);
+            getWeather(44418);
+
+            async function getWeatherAW(woeid){
+                try {
+                    const result = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`);
+                    const data = await result.json();
+                    const tomorrow = data.consolidated_weather[1];
+                    console.log(`Temperatures tomorrow in ${data.title} stay between ${tomorrow.min_temp} and ${tomorrow.max_temp}.`);
+                } catch(err){
+                    console.log(err);
+                }
+                
+            }
+            getWeatherAW(2487956);
+            getWeatherAW(44418);
+        </script>
+    </body>
+</html>

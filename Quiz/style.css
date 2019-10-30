@@ -1,0 +1,50 @@
+html, body {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+body{
+    padding: 5%;
+}
+
+button {
+    margin: 5%;
+    padding: 2% 5%;
+}
+
+#container {
+    width: 80%;
+    height: 80%;
+    align-content: center;
+    justify-items: center;
+    display: flex;
+    margin: auto;
+    text-align: center;
+    border: solid red 2px;
+}
+
+#quiz-start {
+    text-align: center;
+    margin: auto;
+}
+
+#quiz-question-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: none;
+}
+
+#quiz-results {
+    margin: auto;
+    text-align: center;
+    display: none;
+}
+
+#answers {
+    width: 60%;
+    justify-items: left;
+    margin: auto;
+    font-size: 2em;
+}
