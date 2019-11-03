@@ -1,6 +1,8 @@
 // Global app controller
 import Search from './models/Search';
-
+import Recipe from './models/Recipe';
+import * as searchView from './views/searchView';
+import { elements, renderLoader, clearLoader } from './views/base';
 // Global state of app
 // - Search object
 // - Current recipe object
@@ -8,25 +10,81 @@ import Search from './models/Search';
 // - Liked recipes
 const state = {};
 
+/*
+    SEARCH CONTROLLER
+*/
 const controlSearch = async () => {
     // get query from view
-    const query = 'pizza' //TODO
+    const query = searchView.getInput();
     if (query){
         // new search object and add to state
         state.search = new Search(query);
 
         // prepare UI for results
+        searchView.clearInput();
+        searchView.clearResults();
+        renderLoader(elements.searchResult);
 
-        // search for recipes
-        await state.search.getResults();
+        try {
+            // search for recipes
+            await state.search.getResults();
 
-        // render results on UI
-        console.log(state.search.result);
+            // render results on UI
+            clearLoader();
+            searchView.renderResults(state.search.result);
+        } catch(err){
+            console.log(err);
+            clearLoader();
+        }
+        
     }
-}
+};
 
-document.querySelector('.search').addEventListener('submit', e=>{
+elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 });
 
+elements.searchResultPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    if(btn){
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+        console.log(goToPage);
+    }
+    
+});
+
+/*
+    RECIPE CONTROLLER
+*/
+const controlRecipe = async () => {
+    // Get ID from URL
+    const id = window.location.hash.replace('#', '');
+    console.log(id);
+
+    if(id){
+        // prepare ui for changes
+
+        // create new recipe object
+        state.recipe = new Recipe(id);
+
+        try {
+            // get recipe data
+            await state.recipe.getRecipe();
+
+            // calc time & servings
+            state.recipe.calcTime();
+            state.recipe.calcServings();
+
+            // render the recipe to UI
+            console.log(state.recipe);
+        } catch(err){
+            console.log(err);
+        }
+    }
+};
+
+// Runs same function for two different events
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
